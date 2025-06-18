@@ -1,15 +1,12 @@
 import { View, Text, StyleSheet, Image } from "react-native";
 import { Link } from "expo-router";
+import Logo from "../components/logo";
 
 export default function HomePage() {
   return (
     <View style={styles.container}>
-      <Image
-        style={styles.imageStyle}
-        resizeMode="cover"
-        source={require("../assets/imgs/logo.png")}
-      />
-      <Text style={styles.title}>Bienvenue sur AirBnB !</Text>
+      <Logo />
+      <Text style={styles.welcomeText}>Bienvenue sur AirBnB !</Text>
       <Link style={styles.enterText} href={"/signin"}>
         ➤ Entrez ici
       </Link>
@@ -24,14 +21,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-evenly",
   },
-  title: {
+  welcomeText: {
     fontSize: 20,
     fontWeight: "bold",
   },
-  imageStyle: {
-    width: 150,
-    height: 150,
-  },
+
   enterText: {
     fontSize: 30,
     color: "#717171",

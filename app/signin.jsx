@@ -7,22 +7,24 @@ import {
   Image,
   Pressable,
 } from "react-native";
+import { useState } from "react";
 import { router } from "expo-router";
 import { Link } from "expo-router";
+import Logo from "../components/logo";
+import Title from "../components/title";
+import Input from "../components/input";
 
 export default function SignIn() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.logoTitleContainer}>
-        <Image
-          style={styles.imageStyle}
-          resizeMode="cover"
-          source={require("../assets/imgs/logo.png")}
-        />
-        <Text style={styles.titleText}>Sign in</Text>
+        <Logo />
+        <Title content="Sign in" />
       </View>
       <View>
-        <TextInput style={styles.input} placeholder="email" />
+        <Input placeholder="Email" state={email} setState={setEmail} />
         <TextInput style={styles.input} placeholder="password" />
       </View>
       <View>
@@ -46,27 +48,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-around",
   },
-  titleText: {
-    fontSize: 25,
-    fontWeight: "bold",
-    color: "#717171",
-  },
+
   logoTitleContainer: {
     alignItems: "center",
     gap: 25,
-  },
-
-  input: {
-    height: 40,
-    width: 300,
-    margin: 12,
-    borderBottomColor: "#d6393f",
-    borderBottomWidth: 2,
-    padding: 10,
-  },
-  imageStyle: {
-    width: 110,
-    height: 110,
   },
 
   redText: {
